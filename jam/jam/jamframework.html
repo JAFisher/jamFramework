@@ -1,0 +1,144 @@
+<html>
+<head>
+<title> Jamframework phone object framework </title>	
+
+<script type="text/javascript" src="jquery.js"> </script>
+
+<script type="text/javascript" src="jamFrameWork.js"> </script>
+<script type="text/javascript" src="events/events.js"></script>
+<script type="text/javascript" src="widgets/label.js"></script>
+<script type="text/javascript" src="widgets/view.js"> </script>
+<script type="text/javascript" src="widgets/button.js"> </script>
+<script type="text/javascript" src="widgets/list.js">   </script>
+
+<link href="css/jamFrameWork.css"  rel="stylesheet" type="text/css" />
+
+
+
+<script type="text/javascript" src="../jquery.mobile-1.0rc2/jquery.mobile-1.0rc2.js"> </script>
+<link href="../jquery.mobile-1.0rc2/jquery.mobile-1.0rc2.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+
+
+<body> 
+	
+<script type="text/javascript" > 
+
+ 
+
+// set the userAgent Browser settings this allows the user to set the dimensions of phone devices.
+// This will be handled by a js class eventually when i get around to the biscuits of doing it
+//if iphone then can do conditionals for ipad so on
+
+ 
+	var viewSize = {width:  320, height: 480};
+	
+	
+
+
+ 
+	var view = new jamFrameWork.createView({
+	height:viewSize.height,
+	width:viewSize.width,
+ 	pageid:"page1"
+	});
+	
+	
+	var view2 = new jamFrameWork.createView({
+	height:viewSize.height,
+	width:viewSize.width,
+ 	pageid:"page2"
+	});
+	
+
+
+	var HelloWorld = new jamFrameWork.createLabel({
+	top:0,
+	left:200,
+	text:"hi ya malcolm heard you sucking the penis right about now",
+	width:150,
+	height:30,
+	left:12,
+	top:150,
+	font:"arial"
+	});
+	
+	var Woof = new jamFrameWork.createLabel({
+	text:"yo yo diggety yo",
+	left:100,
+	width:150,
+	height:30,
+	clickEvent:("alert('cllooo);")
+	})
+	
+	
+	
+	var sameObjectinTwoPlaces = new jamFrameWork.createButton({
+	text:"Image Gallery",
+	size:12,
+	top:10,
+	width:150,
+	height:120,
+	left:180,
+	clickEvent:'testfunction()'
+ 	})
+
+
+	var forward = new jamFrameWork.createButton({
+	text:"next View",
+	size:14,
+	top:420,
+	width:150,
+	height:30,
+	left:200,
+	link:"#page2",
+	fx:0
+  	})
+ 	
+ 	var back = new jamFrameWork.createButton({
+	text:"back View",
+	size:14,
+	top:420,
+	width:150,
+	height:30,
+	left:20,
+	link:'#page1',
+	fx:0,
+	direction:"reverse"
+ 	})
+ 	
+ 	var testList = new jamFrameWork.createList({
+ 		
+ 	})
+ 	
+   
+ 	
+ 
+
+ 
+ function testfunction (){
+	alert('yo$');
+}
+
+
+
+// example forward and back with some buttons + a button in two places.
+view.add(HelloWorld);
+view.add(Woof);
+view.add(forward);
+view.add(sameObjectinTwoPlaces);
+view2.add(sameObjectinTwoPlaces)
+view.css("view");
+view2.css('view');
+view2.add(back);
+  	
+
+</script>	
+	
+</body>
+
+
+</html>
