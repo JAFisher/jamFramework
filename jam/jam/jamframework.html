@@ -111,7 +111,10 @@
  	})
  	
  	var testList = new jamFrameWork.createList({
- 		
+ 	top:203,
+ 	size:13,
+ 	width:300,
+ 	height:200	
  	})
  	
    
@@ -124,7 +127,6 @@
 }
 
 
-
 // example forward and back with some buttons + a button in two places.
 view.add(HelloWorld);
 view.add(Woof);
@@ -134,7 +136,25 @@ view2.add(sameObjectinTwoPlaces)
 view.css("view");
 view2.css('view');
 view2.add(back);
-  	
+view2.add(testList);
+
+
+//add a link parameter.... different list types as well.
+testList.add("howdy pillarm");
+testList.add("get out of town");
+testList.add("howdy pillarm");
+testList.add("get out of town");  	
+testList.add("howdy pillarm");
+testList.add("get out of town");
+testList.add("howdy pillarm");
+testList.add("get out of town");
+testList.add("howdy pillarm");
+testList.add("get out of town");  	
+testList.add("howdy pillarm");
+testList.add("get out of town");
+
+
+
 
 </script>	
 	

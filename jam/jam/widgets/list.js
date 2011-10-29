@@ -6,8 +6,8 @@
 	
 jamFrameWork.createList = (function(args){
 	
-	
-	// ul li children
+	this.buildActive = false;
+ 	// ul li children
 	this.children = new Array();
 	//font size
 	this.size = typeof(args.size) != 'undefined' ? args.size : "12";
@@ -43,18 +43,37 @@ jamFrameWork.createList = (function(args){
 	
 	
 	//build command that run the formatted code.
-	this.build = function(){
-		
-	};
-	
+
 	
 	// adds children list to this list array;
 	this.add = function (/*String*/ title,/* HREF */link){
 		
+		 var liStyle = "style='font-size:" +args.size+ "px;'";
+
+		//the build is active then all to the children array else append it dynamically to list;
+ 
+ 		$('#' + this.id).append("<li " + liStyle + ">" + title + "</li>");	
+ 		
 	}
 	
 	
-
+	this.build = function(args){
+		this.buildActive = true;
+ 		var divStyle = "style='overflow-x:hidden;overflow-y:auto;position:absolute;left:" + args.left + "px; top:" + args.top  + "px; bottom: " + args.bottom + "px;" + "px; right:" + args.right 
+		+ "px; width:" +args.width + "px;height:" + args.height + "px;'";
+		var listHolder;
+		
+		var builder = "<div "+divStyle+" > <ul id='"+args.id+"'  data-role='listview'> ";
+  
+		 
+		 
+		builder = builder + "</ul> </div>";
+		
+		 console.log(this.buildActive);
+		return builder;
+		
+	}(this);
+	
 	
 	
 	
