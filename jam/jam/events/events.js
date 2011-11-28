@@ -1,8 +1,8 @@
 (function() {
 
-	//this probably needs destoryed and rethought.
 	//add the event to the object then pass the event parameters as an obtainable value
 	//added a target in so it will stop all propergation on children
+	//this is a scaleable method, need a die event to unbind
 
 	jamFrameWork.addEvent = function(args) {
 		$('#' + args.id).live(args.evt, function(event) {
