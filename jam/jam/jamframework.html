@@ -3,9 +3,10 @@
 <title> Jamframework phone object framework </title>	
 
 <script type="text/javascript" src="jquery.js"> </script>
-
+ 
 <script type="text/javascript" src="jamFrameWork.js"> </script>
 <script type="text/javascript" src="events/events.js"></script>
+
 <script type="text/javascript" src="widgets/label.js"></script>
 <script type="text/javascript" src="widgets/view.js"> </script>
 <script type="text/javascript" src="widgets/button.js"> </script>
@@ -25,136 +26,116 @@
 
 <body> 
 	
-<script type="text/javascript" > 
+<script type="text/javascript" >
 
- 
+	// set the userAgent Browser settings this allows the user to set the dimensions of phone devices.
+	// This will be handled by a js class eventually when i get around to the biscuits of doing it
+	//if iphone then can do conditionals for ipad so on
 
-// set the userAgent Browser settings this allows the user to set the dimensions of phone devices.
-// This will be handled by a js class eventually when i get around to the biscuits of doing it
-//if iphone then can do conditionals for ipad so on
+	//var viewSize = {width:  320, height: 480};
 
- 
-	var viewSize = {width:  320, height: 480};
-	
-	
-
-
- 
 	var view = new jamFrameWork.createView({
-	height:viewSize.height,
-	width:viewSize.width,
- 	pageid:"page1"
+		header:"hello world",
+		pageid:"page1",
+		onSwipe:"nextPage"
 	});
-	
-	
-	var view2 = new jamFrameWork.createView({
-	height:viewSize.height,
-	width:viewSize.width,
- 	pageid:"page2"
-	});
-	
 
+	var view2 = new jamFrameWork.createView({
+		pageid:"page2",
+		onTouch:{fnc: 'testFunction',args:Array(1,2,3) }
+	});
 
 	var HelloWorld = new jamFrameWork.createLabel({
-	top:0,
-	left:200,
-	text:"hi ya",
-	width:150,
-	height:30,
-	left:12,
-	top:150,
-	font:"arial"
+		top:0,
+		left:200,
+		text:"hi ya",
+		width:150,
+		height:30,
+		left:12,
+		top:150,
+		font:"arial"
 	});
-	
-	var Woof = new jamFrameWork.createLabel({
-	text:"yo yo diggety yo",
-	left:100,
-	width:150,
-	height:30,
-	clickEvent:("alert('cllooo);")
-	})
-	
-	
-	
-	var sameObjectinTwoPlaces = new jamFrameWork.createButton({
-	text:"Image Gallery",
-	size:12,
-	top:10,
-	width:150,
-	height:120,
-	left:180,
-	clickEvent:'testfunction()'
- 	})
 
+	var Woof = new jamFrameWork.createLabel({
+		text:"yo yo diggety yo",
+		left:100,
+		width:150,
+		height:30,
+	})
+
+	var sameObjectinTwoPlaces = new jamFrameWork.createButton({
+		text:"Image Gallery",
+		size:12,
+		top:10,
+		width:150,
+		height:120,
+		left:180,
+	})
 
 	var forward = new jamFrameWork.createButton({
-	text:"next View",
-	size:14,
-	top:420,
-	width:150,
-	height:30,
-	left:200,
-	link:"#page2",
-	fx:0
-  	})
- 	
- 	var back = new jamFrameWork.createButton({
-	text:"back View",
-	size:14,
-	top:420,
-	width:150,
-	height:30,
-	left:20,
-	link:'#page1',
-	fx:0,
-	direction:"reverse"
- 	})
- 	
- 	var testList = new jamFrameWork.createList({
- 	top:203,
- 	size:13,
- 	width:300,
- 	height:200	
- 	})
- 	
-   
- 	
- 
+		text:"next View",
+		size:14,
+		top:420,
+		width:150,
+		height:30,
+		left:200,
+		link:"#page2",
+		fx:0
+	})
 
- 
- function testfunction (){
-	alert('yo$');
-}
+	var back = new jamFrameWork.createButton({
+		text:"back View",
+		size:14,
+		top:420,
+		width:150,
+		height:30,
+		left:20,
+		link:'#page1',
+		fx:0,
+		direction:"reverse"
+	})
 
+	var testList = new jamFrameWork.createList({
+		top:203,
+		size:13,
+		width:300,left:20,
+		height:200
+	})
 
-// example forward and back with some buttons + a button in two places.
-view.add(HelloWorld);
-view.add(Woof);
-view.add(forward);
-view.add(sameObjectinTwoPlaces);
-view2.add(sameObjectinTwoPlaces)
-view.css("view");
-view2.css('view');
-view2.add(back);
-view2.add(testList);
+	// example forward and back with some buttons + a button in two places.
+	view.add(HelloWorld);
+	view.add(Woof);
+	view.add(forward);
+	view.add(sameObjectinTwoPlaces);
+	view2.add(sameObjectinTwoPlaces)
+	view.css("view");
+	view2.css('view');
+	view2.add(back);
+	view2.add(testList);
 
+	//add a link parameter.... different list types as well.
+	testList.add("howdy pillarm");
+	testList.add("get out of town");
+	testList.add("howdy pillarm");
+	testList.add("get out of town");
+	testList.add("howdy pillarm");
+	testList.add("get out of town");
+	testList.add("howdy pillarm");
+	testList.add("get out of town");
+	testList.add("howdy pillarm");
+	testList.add("get out of town");
+	testList.add("howdy pillarm");
+	testList.add("get out of town");
 
-//add a link parameter.... different list types as well.
-testList.add("howdy pillarm");
-testList.add("get out of town");
-testList.add("howdy pillarm");
-testList.add("get out of town");  	
-testList.add("howdy pillarm");
-testList.add("get out of town");
-testList.add("howdy pillarm");
-testList.add("get out of town");
-testList.add("howdy pillarm");
-testList.add("get out of town");  	
-testList.add("howdy pillarm");
-testList.add("get out of town");
+	function testFunction (event,arguments) {
+ 		alert('Hello you clicked Example of a touch Event, touchX:' + event.x + 'touchY:Y' + event.y);
+		alert("oh and your arguments were: " + arguments);
+		console.log(event)
+	}
 
-
-
+	function nextPage() {
+		$.mobile.changePage('#page2' );
+	}
 
 </script>	
 	
